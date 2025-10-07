@@ -1,14 +1,19 @@
-// Windy API initialization options
+// Windy API options
 const options = {
-    key: 'rLrOgP3SCi2u9Q8mZHF9ftvI8TiggHOI',  // Replace with your API key
-    verbose: true,              // Optional: log info
-    lat: 4.5353,                // Brunei latitude
-    lon: 114.7277,              // Brunei longitude
-    zoom: 9,                    // Initial zoom level
+    key: "rLrOgP3SCi2u9Q8mZHF9ftvI8TiggHOI", // <-- replace with your actual Windy API key
+    verbose: true,
+    lat: 4.9031,   // Brunei latitude
+    lon: 114.9398, // Brunei longitude
+    zoom: 7
 };
 
-// Initialize Windy
+// Initialize Windy map
 windyInit(options, windyAPI => {
-    const { map, picker } = windyAPI;
+    const { map } = windyAPI;
 
+    // Example: popup at the center
+    L.popup()
+        .setLatLng([options.lat, options.lon])
+        .setContent("Hello from Windy Map!")
+        .openOn(map);
 });
